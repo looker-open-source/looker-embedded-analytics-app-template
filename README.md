@@ -108,7 +108,7 @@ REACT_APP_LOOKER_CLIENT_ID=YOUR_CLIENT_ID
 REACT_APP_LOOKER_CLIENT_SECRET=YOUR_CLIENT_SECRET
 
 # (Optional) URL to your back-end (by default, the Node back-end running in the `server` folder)
-REACT_APP_LOOKER_PROXY_URL=http://localhost:8080/api
+REACT_APP_LOOKER_PROXY_URL=http://localhost:8000/api
 
 # ID of the dashboard embedded on the dashboard page (make sure your embed user has access to it)
 REACT_APP_LOOKER_DASHBOARD=1234
@@ -143,7 +143,7 @@ This should be customized to point to an external embed user that exists on your
 
 ### Running
 
-Single command to both build the app and serve it on `localhost:8080`:
+Single command to both build the app and serve it on `localhost:8000`:
 
 ```sh
 npm run server
@@ -162,7 +162,7 @@ cd server
 npm start
 ```
 
-This will have the front-end running on `localhost:3000`.
+This will have the front-end running on `localhost:5000`.
 
 ## Deployment
 
