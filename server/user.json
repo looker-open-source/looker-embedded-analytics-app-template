@@ -1,0 +1,19 @@
+{
+  "external_user_id": "6323",
+  "first_name": "John",
+  "last_name": "Doe",
+  "session_length": 3600,
+  "force_logout_login": true,
+  "permissions": [
+    "access_data",
+    "see_looks",
+    "see_user_dashboards",
+    "explore"
+  ],
+  "models": [
+    "financial_market_demo"
+  ],
+  "user_attributes": {
+    "locale": "en_US"
+  }
+}

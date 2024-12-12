@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+  .no-scrollbar::-webkit-scrollbar {
+       display: none;
+  }
+     
+  .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+  }
+
+.looker-embed {
+  width: 100%;
+  height: 100vh;
+  border: 0;
+}
+
+.custom-bg-menu-selected {
+  background: radial-gradient(circle at 50% -600%, rgb(139, 108, 67) 0%, rgba(139, 108, 67, 0) 100%), rgba(36, 36, 37, 0.733);
+}
+
+@layer utilities {
+  .bg-gradient-default {
+    background: linear-gradient(
+      10deg,
+      rgb(238 238 247) 0%,
+      rgb(241 237 247) 58%,
+      rgb(253 247 252) 100%
+    );
+  }
+
+  .bg-gradient-default-dark {
+    background: radial-gradient(
+        circle at -50% -160%,
+        rgb(139 108 67 / 100%) 0%,
+        rgb(139 108 67 / 0%) 72%
+      ),
+      #242425bb;
+    background-repeat: no-repeat;
+  }
+
+  .bg-gradient-white {
+    /* To finalize */
+    background: white;
+  }
+
+  .bg-gradient-white-dark {
+    background: radial-gradient(
+        circle at -300% -850%,
+        rgb(250 175 86 / 100%) 0%,
+        rgb(250 175 86 / 0%) 100%
+      ),
+      #f7f7fc;
+    background-repeat: no-repeat;
+  }
+
+  .bg-gradient-red {
+    background: radial-gradient(
+        circle at 700% 1050%,
+        rgb(219 63 29 / 100%) 0%,
+        rgb(219 63 29 / 0%) 97%
+      ),
+      #fff;
+    background-repeat: no-repeat;
+  }
+
+  .bg-gradient-red-dark {
+    background: radial-gradient(
+        circle at 300% 550%,
+        rgb(219 63 29 / 100%) 0%,
+        rgb(219 63 29 / 0%) 100%
+      ),
+      #000;
+    background-repeat: no-repeat;
+  }
+
+  .bg-gradient-green {
+    background: radial-gradient(
+        circle at 700% 1050%,
+        rgb(31 204 39 / 100%) 0%,
+        rgb(31 204 39 / 0%) 97%
+      ),
+      #fff;
+    background-repeat: no-repeat;
+  }
+
+  .bg-gradient-green-dark {
+    background: radial-gradient(
+        circle at 300% 550%,
+        rgb(31 204 39 / 100%) 0%,
+        rgb(31 204 39 / 0%) 100%
+      ),
+      #000;
+    background-repeat: no-repeat;
+  }
+}
