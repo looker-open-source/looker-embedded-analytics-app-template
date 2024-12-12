@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@looker/sdk": "^24.10.0",
-    "@looker/sdk-node": "^24.10.0",
+    "@looker/sdk": "^24.20.0",
+    "@looker/sdk-node": "^24.20.0",
     "body-parser": "^1.20.2",
     "cookie-session": "^2.1.0",
     "cors": "^2.8.5",
