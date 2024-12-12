@@ -1,4 +1,4 @@
-# Looker Application Template React
+# Looker Embedded Analytics Application Template
 
 ## Introduction
 
@@ -6,6 +6,103 @@ The goal of this repository is to showcase how to implement a simple Powered By 
 
 - Embedding a looker dashboard using [Looker Embed SDK](https://developers.looker.com/embed/embed-sdk)
 - Using [Looker SDK](https://www.npmjs.com/package/@looker/sdk) to send custom queries to your Looker instance, and display results using custom visualizations
+
+## Features Overview
+
+### Simple Dashboard Embedding
+**Source:** [`SimpleDashboard.jsx`](./src/components/SimpleDashboard/SimpleDashboard.jsx)
+
+Basic dashboard embedding using Looker's Embed SDK. This feature demonstrates the foundational implementation of embedded analytics.
+
+```javascript
+LookerEmbedSDK.createDashboardWithId('your-dashboard-id')
+  .appendTo('#dashboard-container')
+  .withTheme('Looker')
+  .build()
+  .connect()
+```
+
+**Key Capabilities:**
+- One-click dashboard embedding
+- Default Looker theme integration
+- Automatic responsive sizing
+- Basic user authentication flow
+
+[*Coming Soon*] Training: Simple Dashboard Implementation ↗️
+
+### Advanced Dashboard with Events
+**Source:** [`AdvancedDashboard.jsx`](./src/components/AdvancedDashboard/AdvancedDashboard.jsx)
+
+Enhanced dashboard embedding with bi-directional JavaScript events, enabling interactive filtering and real-time updates.
+
+```javascript
+dashboard
+  .on('dashboard:filters:changed', (event) => {
+    console.log('Filters changed:', event.dashboard.dashboard_filters)
+  })
+  .on('dashboard:run:complete', () => {
+    // Handle dashboard updates
+  })
+```
+
+**Key Capabilities:**
+- Custom filter implementation
+- Two-way event communication
+- Dynamic dashboard updates
+- Cross-filtering capabilities
+- Custom UI controls integration
+
+[*Coming Soon*] Training: Advanced Dashboard Features ↗️
+
+### Native Dashboard with SDK
+**Source:** [`NativeDashboard.jsx`](./src/components/NativeDashboard/NativeDashboard.jsx)
+
+Custom visualization implementation using direct Looker SDK queries and Charts.js for rendering.
+
+```javascript
+const queryResult = await sdk.run_inline_query({
+  result_format: 'json',
+  body: {
+    model: 'your_model',
+    view: 'your_view',
+    fields: ['field1', 'field2'],
+    sorts: ['field1 desc']
+  }
+})
+```
+
+**Key Capabilities:**
+- Direct SDK data access
+- Custom visualization creation
+- Raw data manipulation
+- Flexible rendering options
+- Performance optimization
+
+[*Coming Soon*] Training: Native Dashboard Development ↗️
+
+### Self-Service Exploration
+**Source:** [`SelfService.jsx`](./src/components/SelfService/SelfService.jsx)
+
+Embedded Looker Explore functionality enabling user-driven data exploration.
+
+```javascript
+LookerEmbedSDK.createExploreWithId('your-model::your-explore')
+  .appendTo('#explore-container')
+  .withFilters({
+    'view.field': 'value'
+  })
+  .build()
+  .connect()
+```
+
+**Key Capabilities:**
+- User-driven data exploration
+- Custom field selection
+- Dynamic filtering
+- Saved looks creation
+- Export capabilities
+
+[*Coming Soon*] Training: Self-Service Implementation ↗️
 
 ## Architecture
 
