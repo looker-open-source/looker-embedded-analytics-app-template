@@ -9,6 +9,7 @@ import {
 } from 'chart.js'
 import { Pie } from 'react-chartjs-2'
 import { sdk } from '../../hooks/useLookerSdk'
+import Loading from '../Loading/Loading'
 
 ChartJS.register(CategoryScale, Colors, Tooltip, Legend, PointElement)
 
@@ -22,7 +23,11 @@ function SdkCustomView() {
         {
           label: '# of Queries',
           data: apiUsage.map((e) => e['api_usage.total_usage']),
-          cutout: '50%'
+          cutout: '60%',
+          borderColor:"transparent",
+          backgroundColor: apiUsage.map((e) => `rgba(${(Math.random() * 255).toString()},99,132,1)`),
+          borderRadius: 6,
+          circumference: 320
         }
       ]
     }),
@@ -55,6 +60,7 @@ function SdkCustomView() {
           }
         }
       },
+
       // scales: {
       //   x: {
       //     ticks: {
@@ -76,7 +82,7 @@ function SdkCustomView() {
   }, [])
 
   return (
-    <>{apiUsage.length > 0 ? <Pie className=' mx-auto h-96' options={chartOptions}  data={apiUsageChart} /> : <p>No Data</p>}</>
+    <div className="w-full h-full">{apiUsage.length > 0 ? <Pie className=' mx-auto h-96' options={chartOptions}  data={apiUsageChart} /> : <Loading />}</div>
   )
 }
 

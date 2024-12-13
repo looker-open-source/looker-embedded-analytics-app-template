@@ -6,10 +6,10 @@ import QueriesPieChart from './QueriesPieChart'
 const NativeDashboard = () => {
   return (
     <>
-      <div className="flex flex gap-4 items-start overflow-auto">
+      <div className="grid grid-rows-2 grid-flow-col gap-4 items-start overflow-auto w-[90%] md:grid-rows-1">
         <Tile title="Events">
-          <div className='h-96 w-full'>
-          <EventsLineGraph />
+          <div className='h-96 w-auto'>
+            <EventsLineGraph />
           </div>
         </Tile>
         <Tile title="Queries">

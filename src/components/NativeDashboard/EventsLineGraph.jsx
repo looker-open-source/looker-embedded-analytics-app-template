@@ -9,7 +9,7 @@ import {
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
 import { sdk } from '../../hooks/useLookerSdk'
-// import Loading from '../Loading/Loading'
+import Loading from '../Loading/Loading'
 
 ChartJS.register(ArcElement, LinearScale, Tooltip, Legend, LineElement)
 
@@ -83,11 +83,11 @@ function SdkCustomView() {
   }, [])
 
   return (
-    <div className="content-center h-full">
+    <div className="content-center h-full w-full">
       {events.length > 0 ? (
         <Line data={eventsChart} options={chartOptions} />
       ) : (
-        <p>No Data</p>
+        <Loading />
       )}
     </div>
   )
