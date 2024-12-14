@@ -10,6 +10,7 @@ The goal of this repository is to showcase how to implement a simple Powered By 
 ## Features Overview
 
 ### Simple Dashboard Embedding
+![simple-dashboard](./src/assets/images/simple-dashboard.png)
 **Source:** [`SimpleDashboard.jsx`](./src/components/SimpleDashboard/SimpleDashboard.jsx)
 
 Basic dashboard embedding using Looker's Embed SDK. This feature demonstrates the foundational implementation of embedded analytics.
@@ -17,7 +18,6 @@ Basic dashboard embedding using Looker's Embed SDK. This feature demonstrates th
 ```javascript
 LookerEmbedSDK.createDashboardWithId('your-dashboard-id')
   .appendTo('#dashboard-container')
-  .withTheme('Looker')
   .build()
   .connect()
 ```
@@ -31,12 +31,22 @@ LookerEmbedSDK.createDashboardWithId('your-dashboard-id')
 [*Coming Soon*] Training: Simple Dashboard Implementation ↗️
 
 ### Advanced Dashboard with Events
+![advanced-dashboard](./src/assets/images/advanced-dashboard-schedule.png)
 **Source:** [`AdvancedDashboard.jsx`](./src/components/AdvancedDashboard/AdvancedDashboard.jsx)
 
 Enhanced dashboard embedding with bi-directional JavaScript events, enabling interactive filtering and real-time updates.
 
 ```javascript
+// making a change to the iFrame
 dashboard
+  .updateFilters({
+    'Stock': 'GOOG'
+  })
+
+// retrieving data from the iFrame
+dashboard
+  // applying a theme
+  .withTheme('dark-mode')
   .on('dashboard:filters:changed', (event) => {
     console.log('Filters changed:', event.dashboard.dashboard_filters)
   })
@@ -55,6 +65,7 @@ dashboard
 [*Coming Soon*] Training: Advanced Dashboard Features ↗️
 
 ### Native Dashboard with SDK
+![native-dashboard](./src/assets/images/native-dashboard.png)
 **Source:** [`NativeDashboard.jsx`](./src/components/NativeDashboard/NativeDashboard.jsx)
 
 Custom visualization implementation using direct Looker SDK queries and Charts.js for rendering.
@@ -62,11 +73,15 @@ Custom visualization implementation using direct Looker SDK queries and Charts.j
 ```javascript
 const queryResult = await sdk.run_inline_query({
   result_format: 'json',
+  cache: true,
   body: {
     model: 'your_model',
     view: 'your_view',
     fields: ['field1', 'field2'],
-    sorts: ['field1 desc']
+    sorts: ['field1 desc'],
+    filters: {
+      'field1': '<Looker Filter Syntax>'
+    }
   }
 })
 ```
@@ -81,6 +96,7 @@ const queryResult = await sdk.run_inline_query({
 [*Coming Soon*] Training: Native Dashboard Development ↗️
 
 ### Self-Service Exploration
+![self-service](./src/assets/images/self-service.png)
 **Source:** [`SelfService.jsx`](./src/components/SelfService/SelfService.jsx)
 
 Embedded Looker Explore functionality enabling user-driven data exploration.

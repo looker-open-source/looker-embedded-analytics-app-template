@@ -16,6 +16,12 @@ const EmbedDashboard = () => {
     setDashboard(d)
   }
 
+  const handleScheduleModalOpen = useCallback(() => {
+    if(dashboard) {
+      dashboard.openScheduleDialog()
+    }
+  },[dashboard])
+
   useEffect(() => {
     if (dashboard) {
       dashboard.updateFilters({ [filterName]: selectedFilter })
@@ -31,6 +37,16 @@ const EmbedDashboard = () => {
       LookerEmbedSDK.createDashboardWithId(lookerConfig.dashboardId)
         .withAllowAttr('fullscreen')
         .appendTo(div)
+
+        // Apply custom theme to advanced report
+        .withParams({
+          _theme: JSON.stringify({
+            background_color: "rgba(18,18,18,1)",
+            key_color: "rgba(139,108,67,1)",
+            primary_button_color: "rgba(139,108,67,1)",
+            font_color: "rgba(139,108,67,1)"
+          })
+        })
 
         // Listen to messages to display progress
         .on('dashboard:loaded', () => setDashboardStatus('Loaded'))
@@ -70,8 +86,8 @@ const EmbedDashboard = () => {
   return (
     <>
       <div className="flex min-h-0 flex-col h-full overflow-hidden ">
-        <div className="flex justify-between w-full items-center">
-          <label className="rounded-xl px-4 mb-4 border-orange-300 border-2">
+        <div className="flex space-evenly w-full items-center">
+          <label className="rounded-xl px-4 mb-4 border-orange-300 border-2 mr-2">
             <span className="text-orange-300">Dashboard filter:</span>
             <select
               className=" bg-transparent rounded px-2 outline-none"
@@ -83,9 +99,9 @@ const EmbedDashboard = () => {
               ))}
             </select>
           </label>
-          {/* <div id="dashboard-state" className=" p-2 loading-message">
-          {dashboardStatus}
-        </div> */}
+          <label onClick={handleScheduleModalOpen} className="cursor-pointer hover:bg-[rgba(139,108,67,0.2)] rounded-xl px-4 mb-4 border-orange-300 border-2">
+            <span className="text-orange-300">Add Schedule</span>
+          </label>
         </div>
         {dashboardStatus === 'Loading...' && <Loading />}
         <div

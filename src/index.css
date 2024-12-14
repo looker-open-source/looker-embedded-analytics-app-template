@@ -17,6 +17,20 @@
   width: 100%;
   height: 100vh;
   border: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  ::-webkit-scrollbar {
+    display:none;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(18,18,18,0.8);
+  }
+}
+
+#dashboard {
+  overflow: hidden;
 }
 
 .custom-bg-menu-selected {

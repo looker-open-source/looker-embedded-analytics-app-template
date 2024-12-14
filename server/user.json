@@ -8,6 +8,12 @@
     "access_data",
     "see_looks",
     "see_user_dashboards",
+    "schedule_look_emails",
+    "send_to_integration",
+    "download_with_limit",
+    "save_content",
+    "embed_browse_spaces",
+    "create_alerts",
     "explore"
   ],
   "models": [

@@ -15,6 +15,15 @@ function App() {
         .withAllowAttr('fullscreen')
         .appendTo(div)
 
+        .withParams({
+          _theme: JSON.stringify({
+            background_color: "rgba(18,18,18,1)",
+            key_color: "rgba(139,108,67,1)",
+            primary_button_color: "rgba(139,108,67,1)",
+            font_color: "rgba(139,108,67,1)"
+          })
+        })
+
         // Listen to messages to display progress
         .on('explore:ready', () => setExploreStatus('Loaded'))
         .on('explore:run:start', () => setExploreStatus('Running'))
