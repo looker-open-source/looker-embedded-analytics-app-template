@@ -2,10 +2,10 @@
 
 ## Introduction
 
-The goal of this repository is to showcase how to implement a simple Powered By Looker app, using the Looker SDKs, React and Node. The app is able to display data from a Looker instance using two different methods:
+The goal of this repository is to showcase how to implement a simple Embedded Analytics data application with Looker and Looker's developer tools, implemented in React and Node. The app leverages modern Looker design patterns in both the frontend and backend. Additionally it is able to display data from a Looker instance using two different methods:
 
-- Embedding a looker dashboard using [Looker Embed SDK](https://developers.looker.com/embed/embed-sdk)
-- Using [Looker SDK](https://www.npmjs.com/package/@looker/sdk) to send custom queries to your Looker instance, and display results using custom visualizations
+- [iFrame] Embedding a looker dashboard using [Looker Embed SDK](https://developers.looker.com/embed/embed-sdk)
+- [API] Using [Looker SDK](https://www.npmjs.com/package/@looker/sdk) to send custom queries to your Looker instance, and display results using custom visualizations
 
 ## Features Overview
 
@@ -129,7 +129,7 @@ The app is split into 2 main components:
 
 The architecture is shown in the following picture:
 
-![Architecture](./architecture.png)
+![Architecture](./src/assets/images/app-template-downloadable-architecture.png)
 
 ### Front-end
 
@@ -182,6 +182,8 @@ For a production implementation, we recommend to implement at least following me
 #### Endpoints
 
 On the `/login` endpoint, the back-end uses the credentials to acquire (or re-use) a Looker Session, and returns an API Key.
+
+![cookieless-architecture](./architecture.png) 
 
 The `/acquire-embed-session` endpoint is called by the Looker Embed SDK before loading the iframe. It uses the current Looker session to acquire an **embed cookieless** session. See [Cookieless embedding](https://cloud.google.com/looker/docs/cookieless-embed) for details.
 
