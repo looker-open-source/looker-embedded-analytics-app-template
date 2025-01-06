@@ -23,6 +23,7 @@ const EmbedDashboard = () => {
 
       // Give the embedded content a class for styling purposes
       .withClassName('looker-embed')
+      .withTheme('LookerEmbed')
       .build()
       .connect()
       .catch((error) => {
