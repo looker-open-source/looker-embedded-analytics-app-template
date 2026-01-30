@@ -11,7 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "chart.js": "^4.4.3",
     "dayjs": "^1.11.13",
-    "eslint": "^8.57.0",
+    "eslint": "^9.26.0",
     "lottie-react": "^2.4.0",
     "markdown-to-jsx": "^7.7.0",
     "prettier": "^3.3.2",
